@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ac1e992813.js" crossorigin="anonymous"></script>
+  
+    <title>Predict Heart Disease </title>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html{
+        font-size:62.5%;
+    }
+    body{
+        width: 100%;
+       
+        font-family: 'Poppins', 'sans-serif';
+        background-color: #a4508b;
+        background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+        
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px 0;
+      
+    }
+    h1{
+        margin: auto;
+        color: #fff;
+        font-size: 3rem;
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+       align-items: center;
+        backdrop-filter: blur(18px) saturate(180%);
+        -webkit-backdrop-filter: blur(18px) saturate(180%);
+        background-color: rgba(255, 255, 255, 0.65);
+        width: 75%;
+        height: auto;
+        border-radius: 10px;
+       margin: 30px auto;
+    }
+    .row{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .col-1{
+        width:50%;
+    
+        color: purple;
+        
+       
+    
+    }
+    .col-1  form>input.blank,select{
+        width: 60%;
+        height:2em;
+       border: none;
+        outline: none;
+        border-radius: 5px;
+       margin:0.5rem 0 1rem 1rem;
+      padding-left: 5px;
+      color:#37474F;
+    }
+    .col-1 form>select option{
+        font-weight:600;
+        color:#37474F;
+        background-color:#CF95D8;
+    }
+    .col-1 form>label.title{
+       
+        font-size: 1.8rem;
+    }
+  
+
+  
+    .col-1 .btngroup{
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 2.5em;
+    }
+    .col-1 .button{
+        padding:8px 5px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        font-size: 1.5rem;
+        font-weight: 400;
+        cursor: pointer;
+        width: 25%;
+       
+    }
+    .col-1 .btn-primary{
+        background: #5f0a87;
+        color: #fff;
+        margin-right: 2em;
+    }
+    .col-1 .btn-secondary{
+        background: none;
+        border: #5f0a87 1px dotted;
+        color: #5f0a87;
+    }
+    .col-1 .button:hover{
+        background-color: #ac69bd;
+        outline: #5f0a87 1px dashed;
+        transition: all 0.2s ease-in;
+        color: #5f0a87;
+    }
+    .col-2{
+        width:35%;
+    }
+    .col-2 img{
+        width:115%;
+        filter:drop-shadow(10px 10px 4px #4304506c);
+       
+     
+    }
+ 
+</style>
+</head>
+
+<body>
+    <h1>Predict Your Heart Health</h1>
+   <div class="container">
+      
+
+       <div class="row">
+           <div class="col-1">
+<form action="/predict" method="post">
+    <!-- name -->
+  
+    <!-- age -->
+    <label for="age"class="title">Age: </label><br>
+    <input type="text" name="age" id="age" class="blank" required>
+    <br>
+    <!-- sex -->
+    <label for="sex"class="title">Gender: </label>
+    <br>
+    <select id="sex" name="sex"  required >
+      <option value="0">Female</option>
+      <option value="1">Male</option>
+    </select>
+    <br>
+    <!-- cpt -->
+    <label for="cp"class="title">Chest Pain Type: </label>
+    <br>
+    <select id="cp" name="cp" required >
+  
+    <option  value="0">No Pain</option>
+    
+    <option  value="1">Low Pain</option>
+    
+    <option value="2">High Pain</option>
+    
+    <option value="3">Severe Pain</option>
+    </select>
+    <br>
+    <!-- bps -->
+    <label for="trestbps"class="title">Resting Blood pressure: </label><br>
+    <input type="text" name="trestbps" id="trestbps" class="blank"  required placeholder="Write Blood pressure under 200 in mm Hg">
+    <br>
+    <!-- cholestrol -->
+    <label for="chol"class="title">Cholestrol: </label><br>
+    <input type="text" name="chol" class="blank" id="chol" placeholder="Write cholestrol value in mg/dL" required>
+    <br>
+    <!-- fbs -->
+    <label for="fbs"class="title">Fasting Blood Sugar: </label>
+    <br>
+    <select id="fbs" name="fbs">
+    <option  value="1">Larger than 120 mg/dl</option>
+ 
+    <option  value="0">Less than 120 mg/dl</option>
+    </select>
+    <br>
+    <!-- ecg -->
+    <label for="restecg"class="title">Rest ECG: </label>
+    <br>
+    <select  name="restecg" id="ecg">
+    <option value="0">0</option>
+  
+    <option value="1">1</option>
+    
+    <option  value="2">2</option>
+    </select>
+    <br>
+    <!-- thalach -->
+    <label for="thalach"class="title">Maximum Heart Rate Achieved: </label><br>
+    <input type="text" name="thalach" id="thalach"  class="blank" placeholder="Max 200" required>
+    <br>
+
+    <!-- exang -->
+    <label for="exang"class="title">Exercise-Induced Angina: </label>
+    <br>
+    <select  name="exang" id="exang">
+    <option  value="0">0</option>
+   
+    <option  value="1">1</option>
+    </select>
+    <br>
+    <!-- oldpeak -->
+    <label for="oldpeak"class="title">ST depression induced by exercise: 
+    </label>
+    <br>
+    <select  name="oldpeak" id="oldpeak">
+    <option  value="0">0</option>
+    
+    <option  value="1">1</option>
+    
+    <option  value="2">2</option>
+    
+    <option  value="3">3</option>
+    
+    <option  value="4">4</option>
+    
+    <option  value="5">5</option>
+    
+    <option  value="6">6</option>
+    </select>
+    <br>
+    <!-- slope -->
+    <label for="slope"class="title">Slope: </label>
+    <br>
+    <select name="slope" id="slope">
+    <option  value="0">0</option>
+   
+    <option  value="1">1</option>
+   
+    <option  value="2">2</option>
+    </select>
+    <br>
+    <!-- CA value -->
+    <label for="ca"class="title">CA Value (number of major vessels colored by fluoroscopy): 
+    </label>
+    <br>
+    <select  name="ca" id="ca">
+    <option  value="0">0</option>
+    
+    <option  value="1">1</option>
+   
+    <option  value="2">2</option>
+   
+    <option  value="3">3</option>
+   
+    <option  value="4">4</option>
+    </select>
+    <br>
+    <!-- Thal -->
+    <label for="Thal"class="title">Thalassemia: </label>
+    <br>
+    <select  name="thal" id="thal">
+    <option  value="0">0</option>
+    
+    <option  value="1">1</option>
+   
+    <option  value="2">2</option>
+   
+    <option  value="3">3</option>
+    </select>
+    <br>
+    <div class="btngroup">
+    <button type="submit" class=" button btn-primary">Predict </button>
+    <button type="reset" class=" button btn-secondary">Clear Form</button>
+</div>
+
+
+    
+    
+</form>
+           </div>
+           <div class="col-2">
+            <img src="/static/5917625-ai.svg" alt="Heart-Report">
+           </div>
+       </div>
+   </div>
+  
+
+
+
+</body>
+
+</html>

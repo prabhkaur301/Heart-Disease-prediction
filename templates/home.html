@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Satisfy&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'sans-serif';
+
+            color: white;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-color: #a4508b;
+            background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+            clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 92%);
+           
+          padding-top: 2rem;
+
+
+        }
+
+        .cont {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 0.5rem;
+           
+        }
+
+        .text {
+            width: 40%;
+            max-height: 50vh;
+            margin-left: 5%;
+
+
+
+        }
+
+        .text h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .text-content {
+            margin-bottom: 1.5rem;
+        }
+
+        .main {
+            width: 50%;
+          overflow-x: hidden;
+           
+          
+          
+        }
+
+        .main img {
+            width: 100%; 
+            object-fit: cover;
+            cursor: pointer;
+            filter: drop-shadow(25px 10px 4px #430450a4);
+            transition: all 0.2s linear
+        }
+        .main img:hover{
+          transform: scale(90%);
+          
+        }
+       
+
+        .cta {
+            width: 30%;
+            padding: 0.5em 0.5em;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            background: #280538;
+            transition: all 0.2s ease-in;
+
+
+
+        }
+
+        .cta:hover {
+            background-color: #a4508b;
+            background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+            text-decoration: underline;
+        }
+
+        a.logo {
+            font-weight: bold;
+            color: #fff;
+            font-family: 'Satisfy', cursive;
+            text-decoration: none;
+            font-size: 2em;
+            margin: 3em 0em 0em 2em;
+
+        }
+        @media screen and (max-width:800px){
+            html{
+                font-size:12px;
+            }
+            .container{
+                clip-path:none;
+                padding-top: 2rem;
+               
+
+            }
+            .cont h1{
+font-size: 2rem;
+            }
+            .cont{
+                flex-direction: column-reverse;
+                align-items: center;
+                justify-content: space-evenly;
+                text-align: center;
+                width:100%;
+              
+                padding-right: 7rem;
+            }
+            .cont .text{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items:center;
+            }
+            .cta{
+                width: 95%;
+                font-size:18px;
+             padding: 0.5em 2em;
+          
+         
+            }
+            .cont .main{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                margin-left: -10%;
+              
+               
+            }
+          
+        }
+    </style>
+    <title>Heartly- Your Heart Health Predictor</title>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <a href="/main.html" class="logo">Heartly &hearts;</a>
+        <div class="cont">
+            <div class="text">
+                <div class="text-content">
+                    <h1>Prediction About Your Heart Health </h1>
+                    <p>This Web-App is based on Machine Learning Model which can predict your heart health from various
+                        health report features.</p>
+                </div> 
+                <a href="/form" class="cta">Get Your Report</a>
+            </div>
+
+
+            <div class="main">
+                <img src="/static/19199776-ai .svg" alt="Heart diagonsis picture">
+            </div>
+        </div>
+    </div>
+   
+</body>
+
+</html>
